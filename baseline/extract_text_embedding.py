@@ -10,7 +10,7 @@ def load_dataset(csv_file: str):
   """
   Load the dataset from a csv file.
   """
-  df = pd.read_csv(csv_file)[["business_id", "name", "categories"]]
+  df = pd.read_parquet(csv_file)[["business_id", "name", "categories"]]
      
   return df
 
@@ -54,20 +54,18 @@ if __name__ == '__main__':
 
   parser = argparse.ArgumentParser()
 
-  parser.add_argument('model_base',type=str,help='Transform Model Base',default='bert-base-uncased',)
-  parser.add_argument('csv_file',type=str,help='The csv file',)
-  parser.add_argument('output_path',type=str,help='Output Path',)
-
-  args = parser.parse_args()
+  args = {'model_base':'bert-base-uncased',
+          'csv_file': '../data/yelp_dataset/yelp_academic_dataset_business.parquet',
+          'output_path': '../data/yelp_dataset/embeddings'}
 
   # Load Dataset
   print("\n\nLoad Dataset...")
-  df = load_dataset(args.csv_file)
+  df = load_dataset(args["csv_file"])
   print(df.head()) 
 
   # Load Model
   print("\n\nLoad Transform Model...")
-  model= load_model(args.model_base)  
+  model= load_model(args["model_base"])
   print(model)
 
   # Extract Embeddings
@@ -79,6 +77,6 @@ if __name__ == '__main__':
   #Exporta Dataset
   print("\n\nExtract Dataset...")
 
-  export_dataset(df, "embs", args.output_path)
+  export_dataset(df, "embs", args["output_path"])
 
   print("\n\nDone! :)")

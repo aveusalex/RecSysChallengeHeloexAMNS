@@ -7,3 +7,5 @@ A documentação/detalhamento do trabalho está no arquivo "Documentação exper
 - Na pasta EDA, estão os notebooks que utilizamos para explorar os dados e entender as features e o problema em si.
 - Em Motor de Recomendation contém os notebooks utilizados para gerar as recomendações com base nos embeddings desenvolvidos.
 - Em EmbeddingsGeneration estão os códigos utilizados para gerar os embeddings a partir dos usuários ou dos textos.
+
+Os embeddings estão na pasta data e embeddings

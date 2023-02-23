@@ -106,7 +106,7 @@ def read_eval_ds():
     """
     Read the evaluation dataset.
     """
-    df = pd.read_csv("data/evaluation/eval_users.csv")
+    df = pd.read_csv("../data/evaluation/eval_users.csv")
     df["gt_reclist"] = df["gt_reclist"].apply(eval)
     df["reclist"] = df["reclist"].apply(eval)
     
@@ -124,6 +124,9 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
+    # args = {'embeddings_path': '../data/Embeddings/FirstAttempt/embeddings.txt',
+    #         'metadados_path': '../data/Embeddings/FirstAttempt/metadados.csv'}
+
     # Load Evaluation Dataset
     eval_users = read_eval_ds()
 
@@ -132,8 +135,8 @@ if __name__ == '__main__':
     print(df.head())
 
     # Create a Map Index
-    item_code_id = {i: code for i, code in enumerate(df['business_id'])}
-    item_id_code = {code: i for i, code in enumerate(df['business_id'])}
+    item_code_id = {i: code for i, code in enumerate(df.business_id)}
+    item_id_code = {code: i for i, code in enumerate(df.business_id)}
 
     ndcg_5_list = []
     ndcg_10_list = []

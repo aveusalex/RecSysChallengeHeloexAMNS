@@ -8,4 +8,4 @@ A documentação/detalhamento do trabalho está no arquivo "Documentação exper
 - Em Motor de Recomendation contém os notebooks utilizados para gerar as recomendações com base nos embeddings desenvolvidos.
 - Em EmbeddingsGeneration estão os códigos utilizados para gerar os embeddings a partir dos usuários ou dos textos.
 
-Os embeddings estão nas pastas data e embeddings.
+Os embeddings estão na pasta data no link: https://drive.google.com/drive/folders/1D4GphrFMC-9nkF752e-QeR9-cPPN6Upt?usp=share_link
